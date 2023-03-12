@@ -1,11 +1,11 @@
-## ToDo
+# Project Feedback
 
-- [x] Set Up Database
-- [x] Set Up Models
+### Setup
 
-## Changes
-- [x] Seperate Username and Password errors for Auth
-- [x] Ward NO is Drop-down
-- [ ] Anyone disabled
-- [x] Insurance should be company name
-- [x] Category should be class2
+- ```python -m venv env```
+
+- ```.\env\Scripts\activate```
+
+- ```pip install -r requirements.txt```
+
+- ```streamlit run .\src\app.py```
