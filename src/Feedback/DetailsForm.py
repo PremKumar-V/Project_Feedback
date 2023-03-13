@@ -14,8 +14,8 @@ def dateFunc():
 
 def clearFunc():
     st.session_state["ward"] = "Select"
-    st.session_state["wingno"] = ""
-    st.session_state["roomno"] = ""
+    st.session_state["wingno"] = "Select"
+    st.session_state["roomno"] = "Select"
     st.session_state["patientIpNo"] = ""
     st.session_state["patientName"] = ""
     st.session_state["age"] = 0
@@ -53,16 +53,16 @@ def search():
     try:
         fillFunc(arr[0])
         st.success("Patient Found")
-        form = Form()
+        # form = Form()
     except IndexError:
-        st.error("Patien Not Found")
+        st.error("Patient Not Found")
         clearFunc()
 
 
 def fillFunc(result):
     st.session_state["ward"] = result.ward
-    st.session_state["wingno"] = str(result.wingno)
-    st.session_state["roomno"] = str(result.roomno)
+    st.session_state["wingno"] = result.wingno
+    st.session_state["roomno"] = result.roomno
     st.session_state["patientIpNo"] = str(result.pIpno)
     st.session_state["patientName"] = result.pName
     st.session_state["age"] = result.age
@@ -89,9 +89,9 @@ class DetailsClass:
             wardno = col1.selectbox(
                 "Ward No", ["Select", "Ward_1", "Ward_2", "Ward_3"], key="ward"
             )
-            wingno = col2.text_input("Wing No", key="wingno")
-            roomno = col3.text_input("Room No", key="roomno")
-
+            wingno = col2.selectbox("Wing No",['Select', 1, 2, 3], key="wingno")
+            roomno = col3.selectbox("Room No",['Select', 101, 106], key="roomno")
+            button = st.form_submit_button("Submit", on_click=search)
             col4, col5 = st.columns(2)
             patientIpNo = col4.text_input("Patiend Ip No", key="patientIpNo")
             patientName = col5.text_input("Patient Name", key="patientName")
@@ -134,4 +134,4 @@ class DetailsClass:
             diagnosis = col16.text_input("Diagnosis", key="diagnosis")
             consultantname = col17.text_input("Consultant Name", key="consultantname")
 
-            button = st.form_submit_button("Submit", on_click=search)
+            
