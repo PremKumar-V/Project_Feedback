@@ -1,7 +1,10 @@
 import streamlit as st
 
+from .Viewer import View
 from database.db import session
 from database.models import AdminLogin
+
+view = View()
 
 
 def admin_Login_button_func():
@@ -22,6 +25,8 @@ def admin_Login_button_func():
             st.error("Invalid Password")
         else:
             st.success("Admin Login Successful")
+            # view.run()
+
     except IndexError:
         st.error("User not found")
 
