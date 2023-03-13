@@ -12,5 +12,6 @@ if __name__ == "__main__":
     if choice == "Feedback Page":
         login = Login.LoginClass()
         details = DetailsForm.DetailsClass()
+        feedbackform = FeedbackForm.Form()
     else:
         admin = Admin()
